@@ -1,4 +1,5 @@
 <?
+
 /**
  * Function checks correctness of parenthesis string 
  *
@@ -8,7 +9,7 @@
  * @return true Returns true if parenthesis string is correct
  * @throws Exception in case of errors
  */
-function checkParenthesis($postBody, $option = 0) 
+function checkParenthesis($postBody, $option = 0)
 {
     $check = strlen($postBody);
     //Вполне возможно, что не нужно 
@@ -16,7 +17,6 @@ function checkParenthesis($postBody, $option = 0)
         throw new Exception("Empty Post Body");
     }
     parse_str($postBody, $postArray);
-
     if (empty($postArray["string"])) {
         throw new Exception("Post Body parameter String not found or Empty");
     }
@@ -29,8 +29,8 @@ function checkParenthesis($postBody, $option = 0)
     if (!isset($check["40"]) || !isset($check["41"]) || $check["40"] !== $check["41"]) {
         throw new Exception("Parenthesis Check failed");
     }
-    // pattern for strings with symbols other than parenthesis $regexPattern = "/\(([^\(\)]*)\)/";
     if ($option === 0) {
+        // pattern for strings with symbols other than parenthesis $regexPattern = "/\(([^\(\)]*)\)/";
         $regexPattern = "/\(\)/";
         $return = $postArray["string"];
         do {
@@ -57,7 +57,6 @@ function checkParenthesis($postBody, $option = 0)
                 throw new Exception("Parenthesis Check failed");
             }
         }
-
         if ($parenthesisCounter > 0) {
             throw new Exception("Parenthesis Check failed");
         }
