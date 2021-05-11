@@ -47,9 +47,9 @@ function checkParenthesis($postBody, $option = 0)
         $parenthesisCounter = 0;
         foreach ($stringArray as $char) {
             if ($char === "(") {
-                $parenthesisCounter += 1;
+                $parenthesisCounter++;
             } elseif ($char === ")") {
-                $parenthesisCounter -= 1;
+                $parenthesisCounter--;
             } else {
                 throw new Exception("Parenthesis Check failed");
             }
